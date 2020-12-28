@@ -21,7 +21,7 @@ namespace EsThreadCalciatori
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly Uri uriRonaldo = new Uri("Ronaldo.jfif", UriKind.Relative);   //parallelo del URL ma del file locale
+        readonly Uri uriRonaldo = new Uri("Ronaldo.jfif", UriKind.Relative);   //parallelo del URL ma del file locale..
         int posRonaldo;
         
         public MainWindow()
