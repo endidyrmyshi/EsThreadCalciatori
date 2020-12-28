@@ -21,9 +21,11 @@ namespace EsThreadCalciatori
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly Uri uriRonaldo = new Uri("Ronaldo.jfif", UriKind.Relative);   //parallelo del URL ma del file locale..
+        readonly Uri uriRonaldo = new Uri("Ronaldo.jfif", UriKind.Relative); //parallelo del URL ma del file locale..
+        readonly Uri uriMessi = new Uri("Messi.png", UriKind.Relative);
         int posRonaldo;
-        
+        int posMessi;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,10 +34,17 @@ namespace EsThreadCalciatori
 
             ImageSource imm = new BitmapImage(uriRonaldo);  //creo l'oggetto
             imgRonaldo.Source = imm;
-
             t1.Start();
 
-         
+
+            Thread t2 = new Thread(new ThreadStart(MuoviMessi));
+
+            ImageSource imm2 = new BitmapImage(uriMessi);  //creo l'oggetto
+            imgMessi.Source = imm2;
+
+            t2.Start();
+
+
 
         }
 
@@ -51,6 +60,28 @@ namespace EsThreadCalciatori
                 this.Dispatcher.BeginInvoke(new Action(() =>    //visto che cè un conflitto usiamo Dispatcher che attraverso un delegato action
                 {
                     imgRonaldo.Margin = new Thickness(posRonaldo, 100, 0, 0);
+
+
+                }));
+
+            }
+
+
+
+
+        }
+        public void MuoviMessi()
+        {
+
+            while (posMessi < 500)
+            {
+                posMessi += 100;
+
+                Thread.Sleep(TimeSpan.FromMilliseconds(200));
+
+                this.Dispatcher.BeginInvoke(new Action(() =>    //visto che cè un conflitto usiamo Dispatcher che attraverso un delegato action
+                {
+                    imgMessi.Margin = new Thickness(posMessi, 300, 0, 0);
 
 
                 }));
