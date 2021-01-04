@@ -36,7 +36,6 @@ C:\Users\Endi\Documents\EsThreadCalciatori\EsThreadCalciatori\bin\Debug\EsThread
 C:\Users\Endi\Documents\EsThreadCalciatori\EsThreadCalciatori\obj\Debug\EsThreadCalciatori.csprojAssemblyReference.cache
 C:\Users\Endi\Documents\EsThreadCalciatori\EsThreadCalciatori\obj\Debug\MainWindow.g.cs
 C:\Users\Endi\Documents\EsThreadCalciatori\EsThreadCalciatori\obj\Debug\App.g.cs
-C:\Users\Endi\Documents\EsThreadCalciatori\EsThreadCalciatori\obj\Debug\EsThreadCalciatori_Content.g.cs
 C:\Users\Endi\Documents\EsThreadCalciatori\EsThreadCalciatori\obj\Debug\EsThreadCalciatori_MarkupCompile.cache
 C:\Users\Endi\Documents\EsThreadCalciatori\EsThreadCalciatori\obj\Debug\EsThreadCalciatori_MarkupCompile.lref
 C:\Users\Endi\Documents\EsThreadCalciatori\EsThreadCalciatori\obj\Debug\MainWindow.baml

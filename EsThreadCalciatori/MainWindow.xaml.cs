@@ -13,27 +13,39 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using System.Diagnostics;
 
 namespace EsThreadCalciatori
 {
+
     /// <summary>
     /// Logica di interazione per MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly Uri uriRonaldo = new Uri("Ronaldo.jfif", UriKind.Relative); //parallelo del URL ma del file locale..
+        readonly Uri uriRonaldo = new Uri("Ronaldoo2.png", UriKind.Relative); //parallelo del URL ma del file locale..
         readonly Uri uriMessi = new Uri("Messi.png", UriKind.Relative);
         int posRonaldo;
         int posMessi;
 
+
+        public int posOrizzontaleWrestler1 = 196;
+        public int posOrizzontaleWrestler2 = 442;
+
+        Random r1 = new Random();
+        Random r2 = new Random();
+        public int giaVinto = 0;
+
+
+
         public MainWindow()
         {
             InitializeComponent();
-           
+
             Thread t1 = new Thread(new ThreadStart(MuoviRonaldo));
 
             ImageSource imm = new BitmapImage(uriRonaldo);  //creo l'oggetto
-            imgRonaldo.Source = imm;
+            imgRonaldo2.Source = imm;
             t1.Start();
 
 
@@ -44,7 +56,8 @@ namespace EsThreadCalciatori
 
             t2.Start();
 
-
+            t1.Join(1);
+            t2.Join(1);
 
         }
 
@@ -53,17 +66,23 @@ namespace EsThreadCalciatori
 
             while (posRonaldo < 500)
             {
-                posRonaldo += 100;
+                posRonaldo += r1.Next(1, 5);
 
-                Thread.Sleep(TimeSpan.FromMilliseconds(200));
+                Thread.Sleep(TimeSpan.FromMilliseconds(300));
 
                 this.Dispatcher.BeginInvoke(new Action(() =>    //visto che cè un conflitto usiamo Dispatcher che attraverso un delegato action
                 {
-                    imgRonaldo.Margin = new Thickness(posRonaldo, 100, 0, 0);
+
+                    imgRonaldo2.Margin = new Thickness(posRonaldo, 100, 0, 0);
 
 
                 }));
 
+            }
+            if (giaVinto == 0)
+            {
+                giaVinto = 1;
+                MessageBox.Show("Ha vinto RONALDO!!");
             }
 
 
@@ -75,9 +94,9 @@ namespace EsThreadCalciatori
 
             while (posMessi < 500)
             {
-                posMessi += 100;
+                posMessi += r1.Next(1, 5);
 
-                Thread.Sleep(TimeSpan.FromMilliseconds(200));
+                Thread.Sleep(TimeSpan.FromMilliseconds(300));
 
                 this.Dispatcher.BeginInvoke(new Action(() =>    //visto che cè un conflitto usiamo Dispatcher che attraverso un delegato action
                 {
@@ -87,10 +106,16 @@ namespace EsThreadCalciatori
                 }));
 
             }
+            if (giaVinto == 0)
+            {
+                giaVinto = 1;
+                MessageBox.Show("Ha vinto MESSI!!");
 
 
 
 
+
+            }
         }
     }
 }

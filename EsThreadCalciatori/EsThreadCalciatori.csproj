@@ -98,8 +98,8 @@
     <Resource Include="pistaEs.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Ronaldoo2.png" />
     <Resource Include="Messi.png" />
-    <Content Include="Ronaldo.jfif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
